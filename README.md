@@ -1,89 +1,66 @@
 # SpriteAssets
 
-RPG sprite assets for the whatsapp-bot project.
+Reorganized asset pool for MicroLoan/other Go+Flutter side projects using pixel art.
+Structure below reflects the `organize-assets` branch cleanup (dedupe + categorize).
+Old README content preserved in `README.old.md.bak`.
 
-## Sprite Categories
+## What changed
 
-### Boss Sprites
-- `boss_*_N.png` / `boss_*_S.png` — 13 boss variants (normal + shiny), sprite sheets
-- `pxl drAHHgon.png`, `Tree_of_Glory-Sheet.png`, `blue_doom-Sheet.png` — unique boss sheets
+- Removed `__MACOSX` junk folders (Mac resource-fork noise, zero content).
+- Deduped exact-copy folders: `Zombies (1)`, `German shepard bundle (1)`,
+  `Shikashi's Fantasy Icons Pack v2 (1)`, and `Sperites/` (byte-identical dupes
+  of files that also lived loose in root). ~25MB removed, no asset loss.
+- `graphics/` left untouched — this looks like an already-organized live game
+  asset tree (attacks/backgrounds/characters/fonts/icons/monsters/objects/
+  tilesets/ui), so it wasn't restructured beyond restoring what a stray move
+  briefly pulled out.
 
-### Enemy Character Sheets
-- `goblin sheet.png`, `gnoll sheet.png`, `skelleton sheet.png`
-- `sahuagin sheet.png`, `kobold_0000_red.png`, `troll_0000_green.png`
-- `wolf_0001_brown.png`, `Rat_0004_dark.png`, `Bat_0000_dark.png`
-- `Werewolf_0004_brown.png`, `crab sheet.png`, `turnip sheet.png`
-- `slime waterB sheet.png`, `training dummy sheet.png`
-- `fire_fear-Sheet.png`, `fire_fear_summon-Sheet.png`
-- `espantalho_antigo-Sheet.png`, `espantalho_summon-Sheet.png`
-- `blue_doom_idle-Sheet.png`, `blue_doom-Sheet.png`
-- `tree_of_glory_idle-Sheet.png`, `Tree_of_Glory-Sheet.png`
+## Folder guide
 
-### Animation Frames
-- `idle.png`, `walk.png`, `die.png` — base character animations
-- `magical attack.png` — magic attack sprite
-- `1Scratch_*.gif`, `2BlueSpark_*.gif` — scratch/spark VFX animations
+- **`creatures/`** — anything monster/creature related
+  - `unnamed_creature_set/` — the old anonymous `sprite1.png`...`sprite16.png`
+    (+ `_attack`/`_idle` variants). I looked at each and renamed by what's
+    actually drawn, e.g. `toad_green_walk.png`, `drake_red_attack.png`,
+    `spider_dark_idle.png`. Full list: toad_green, rat_grey, wolf_brown,
+    fox_orange, jelly_purple, bat_dark, slime_teal, chick_yellow, sprout_green,
+    spider_dark, golem_brown, ghost_grey, drake_red, fish_blue, beetle_navy,
+    serpent_green. (Best-effort visual ID off small pixel art — flag me if any
+    look wrong and I'll fix the name.)
+  - `raw_sheets_to_crop/` — full, uncut sprite sheets (sahuagin, skeleton,
+    slime, troll, wolf, kobold, bat, rat, werewolf, crab, gnoll, goblin,
+    turnip, training dummy, tree of glory, blue doom, fire fear, espantalho,
+    dragon). Names are already descriptive; these still need per-frame
+    cropping before use — that's the next pipeline step.
+  - `retromon_pack/` — the free fakemon-style variety pack (53+ creatures),
+    left in its original internal structure since it's already clean.
 
-### Sprites (16 characters, each with attack + idle)
-`sprites/` — sprite1 through sprite16, each with `_attack.png` and `_idle.png`
+- **`vfx_and_spells/`** — Dark VFX 1/2, Holy VFX 01/02, Magic Pack, the
+  `128/64/32` icon-size folders, attack effects.
 
-### Character Overworld
-`character overworld/` — ow1 through ow16 overworld sprites
+- **`ui_and_icons/`** — FantasyUIfree, Icons_Demo/Essential, both Shikashi
+  icon packs, animated key pack, UI/UI_Elements_Demo.
 
-### Menu Sprites
-`menu sprites/` — menusprite1 through menusprite16 UI icons
+- **`character_packs/`** — German shepherd bundle, Zombies, Bonus Pack 2025,
+  Humble Gift, character overworld, menu sprites, and `impact_gifs/` (the
+  loose scratch/spark hit-effect GIFs from root).
 
-### Sperites (additional enemy sheets)
-`Sperites/` — duplicate enemy sprite sheets at root level
+- **`tilesets_and_backgrounds/`** — tileset, backgrounds, SD.
 
-### Attack Effects
-`attack effects/` — attack1 through attack7 VFX sprites
+- **`bosses/`** — the `boss_N_N.png` / `boss_N_S.png` directional sprite set.
 
-### Backgrounds
-`backgrounds/` — background1 through background3 environment backgrounds
+- **`effects_misc/`** — loose `die.png`, `idle.png`, `walk.png`,
+  `magical attack.png` (unclear which pack these belong to — didn't want to
+  guess-merge them into a named pack).
 
-### Graphics (retromon-style)
-- `graphics/characters/` — player, fire_boss, water_boss, grass_boss, hat_girl, etc.
-- `graphics/monsters/` — Atrox, Cindrill, Draem, Finiette, etc.
-- `graphics/attacks/` — explosion, fire, ice, green, scratch, splash
-- `graphics/backgrounds/` — forest, ice, sand
-- `graphics/objects/` — trees, rocks, houses, gates, pillars
-- `graphics/tilesets/` — world, coast, indoor tilesets + water animation frames
-- `graphics/ui/` — sword, shield, health, energy, attack, defense icons
-- `graphics/fonts/` — PixeloidSans.ttf, dogicapixel.otf
-- `graphics/icons/` — monster icons (Pluma, Ivieron, Gulfin, etc.)
+- **`_unsorted_review/screenshots_and_clipboard/`** — 58 auto-named clipboard
+  dumps (`image - 2025-08-16T...png`, `image (N).png`, a few gifs). Didn't
+  burn the budget eyeballing all 58 — say the word and I'll go through them
+  and sort/label properly, or if you know what date range matters most I can
+  start there.
 
-### Pixel Art Key Pack (Animated)
-`Pixel Art Key Pack - Animated/` — Keys 1-9 in Bronze/Gold/Silver/Grey/Cursed variants with animation frames + spritesheets
+## Still open
 
-### VFX Packs
-- `Dark VFX 1/` — dark magic visual effects
-- `Dark VFX 2/` — additional dark VFX
-- `Holy VFX 01/` — holy/light VFX
-- `Holy VFX 02/` — additional holy VFX
-- `Magic Pack 9 files/` — Dark Bolt, Fire Bomb, Lightning, Spark (sprites, spritesheets, aseprite source)
-
-### UI Elements
-- `UI/` — bar icons (baricon1-7) and option icons (options1-8)
-- `UI_Elements_Demo/` — buttons, panels, slots, progress bars
-- `FantasyUIfree/` — dragon HP bars and fantasy UI elements
-- `Icons_Demo/` — icon set demo
-- `Icons_Essential/` — essential icon pack
-
-### Fantasy Icon Packs (Shikashi's)
-- `Shikashi's Fantasy Icons Pack/` — v1 icons + backgrounds
-- `Shikashi's Fantasy Icons Pack v2/` — v2 icons + backgrounds
-- `Shikashi's Fantasy Icons Pack v2 (1)/` — v2 duplicate
-
-### Bonus Content
-- `Bonus Pack 2025/` — bonus asset pack
-- `Humble Gift - v1.3/` — humble bundle gift assets
-- `German shepard bundle/` + `German shepard bundle (1)/` — german shepherd sprite bundles
-- `Retromon Free Pack/` — retro monster icons and sprites
-- `SD/` — ifrit, leviathan, shiva SD sprites (fire/ice/water variants)
-- `Zombies/` + `Zombies (1)/` — zombie battlers and sprites (NPC + VS8 variants)
-
-### Other Assets
-- `128/`, `32/`, `64/` — sized asset variants
-- `tileset/` — tileset.png
-- Various standalone `.png` and `.gif` files at root (exported/image-timestamped sprites)
+- `raw_sheets_to_crop/` sheets aren't cut into individual frames yet — need
+  frame dimensions per sheet (they're not uniform) before an automated
+  cropper makes sense.
+- `_unsorted_review/` needs a manual (or Claude) pass.
