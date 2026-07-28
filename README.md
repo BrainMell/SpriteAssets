@@ -58,9 +58,41 @@ Old README content preserved in `README.old.md.bak`.
   and sort/label properly, or if you know what date range matters most I can
   start there.
 
+## `creatures/cropped_frames/` — frame-by-frame cuts, ultra-detailed names
+
+Every sheet in `raw_sheets_to_crop/` has now been cropped into individual
+frames using alpha-channel bounding-box detection (for packed/variable-width
+sheets) or exact uniform-grid math (for sheets that divide evenly by their
+own height, e.g. `tree_of_glory` at 512×512×43).
+
+**1,124 frames total**, 17MB, one folder per creature. Filename pattern:
+
+```
+{creature}_{color/variant if known}_{action}_frame{NN}of{total}.png
+```
+
+e.g. `sahuagin_idle_frame00of09.png`, `kobold_red_attack_frame04of09.png`,
+`wolf_brown_death_frame08of09.png`.
+
+**Action labels (idle/walk/run/attack/hurt/death) are inferred from row
+order** — 14 of these sheets share an identical 6-row × 9-frame layout,
+which is the standard action ordering for this asset-pack style. I did **not**
+visually confirm every single row's action per creature (that'd be 84+ manual
+checks) — if GLM or you spot a mislabeled row (e.g. row 3 is actually "cast"
+not "attack" for some creature), tell me which one and I'll relabel just that
+folder rather than guessing wrong across all of them.
+
+Sheets processed: sahuagin, skeleton, troll, wolf, kobold, bat, rat,
+werewolf, training-dummy, turnip, crab, gnoll, goblin, slime (all 6×9 =
+54-57 frames each) + tree-of-glory (43-frame uniform idle strip) +
+blue-doom, espantalho, espantalho-antigo, fire-fear (uniform VFX/summon
+strips) + dragon-pixel (small 17-frame irregular sheet).
+
+Original uncut sheets are still in `raw_sheets_to_crop/` in case a re-crop
+is ever needed.
+
 ## Still open
 
-- `raw_sheets_to_crop/` sheets aren't cut into individual frames yet — need
-  frame dimensions per sheet (they're not uniform) before an automated
-  cropper makes sense.
-- `_unsorted_review/` needs a manual (or Claude) pass.
+- `_unsorted_review/` (58 clipboard screenshots) needs a manual pass.
+- Row/action labels above are convention-based, not frame-by-frame verified —
+  flag anything that looks wrong.
