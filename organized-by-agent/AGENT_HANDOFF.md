@@ -3,6 +3,10 @@
 Repo: `BrainMell/SpriteAssets`
 Branch: `audit/organize-assets` (already pushed, safe to build on)
 
+**Repo layout as of this commit:** everything processed lives under
+`organized-by-agent/` (this file included). Everything untouched lives under
+`raw-asset-packs/`. See root `README.md` for the full breakdown.
+
 ## Done (batch 1 — pushed)
 - Deduped `German shepard bundle (1)/` — was byte-identical to `German shepard bundle/`, removed.
 - Cropped and ultra-detail-renamed 8 raw sprite sheets using alpha-channel boundary detection

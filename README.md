@@ -1,89 +1,37 @@
 # SpriteAssets
 
-RPG sprite assets for the whatsapp-bot project.
+RPG sprite assets for whatsapp-bot.
 
-## Sprite Categories
+**Branch: `audit/organize-assets`** — this branch is mid-cleanup. The repo is split into exactly two top-level folders so it's always clear what's been processed and what hasn't:
 
-### Boss Sprites
-- `boss_*_N.png` / `boss_*_S.png` — 13 boss variants (normal + shiny), sprite sheets
-- `pxl drAHHgon.png`, `Tree_of_Glory-Sheet.png`, `blue_doom-Sheet.png` — unique boss sheets
+## `organized-by-agent/` — 655 files, cropped/identified/renamed
 
-### Enemy Character Sheets
-- `goblin sheet.png`, `gnoll sheet.png`, `skelleton sheet.png`
-- `sahuagin sheet.png`, `kobold_0000_red.png`, `troll_0000_green.png`
-- `wolf_0001_brown.png`, `Rat_0004_dark.png`, `Bat_0000_dark.png`
-- `Werewolf_0004_brown.png`, `crab sheet.png`, `turnip sheet.png`
-- `slime waterB sheet.png`, `training dummy sheet.png`
-- `fire_fear-Sheet.png`, `fire_fear_summon-Sheet.png`
-- `espantalho_antigo-Sheet.png`, `espantalho_summon-Sheet.png`
-- `blue_doom_idle-Sheet.png`, `blue_doom-Sheet.png`
-- `tree_of_glory_idle-Sheet.png`, `Tree_of_Glory-Sheet.png`
+Everything in here has been individually cropped into per-frame files with descriptive names and sorted into folders. See `organized-by-agent/AGENT_HANDOFF.md` for full history and naming conventions.
 
-### Animation Frames
-- `idle.png`, `walk.png`, `die.png` — base character animations
-- `magical attack.png` — magic attack sprite
-- `1Scratch_*.gif`, `2BlueSpark_*.gif` — scratch/spark VFX animations
+| Folder | Contents | Frames |
+|---|---|---|
+| `creatures/bat/` | Bat sheet, alpha-cropped | 35 |
+| `creatures/kobold/` | Kobold sheet, alpha-cropped | 54 |
+| `creatures/sahuagin/` | Sahuagin sheet, alpha-cropped | 45 |
+| `creatures/skeleton_warrior/` | Skeleton warrior sheet, alpha-cropped | 57 |
+| `creatures/troll/` | Troll sheet, alpha-cropped | 36 |
+| `creatures/wolf/` | Wolf sheet, alpha-cropped | 54 |
+| `props/training-dummy/` | Training dummy sheet, alpha-cropped | 54 |
+| `props/turnip-creature/` | Turnip creature sheet, alpha-cropped | 54 |
+| `props/tree-of-glory/` | `tree_of_glory_idle-Sheet.png`, uniform-grid cropped | 43 |
+| `sprites/*/` (16 subfolders) | Base/attack/idle sheets, cropped per-creature. **Naming is best-effort color+silhouette** (not confirmed species) — flagged for human spot-check | 160 |
+| `sorted-screenshots/*/` (4 subfolders: `animated-effects`, `icons-small`, `portraits-large`, `misc-sprites`) | 62 loose clipboard screenshots, sorted by type/size. **Category-level only**, not individually renamed | 62 |
 
-### Sprites (16 characters, each with attack + idle)
-`sprites/` — sprite1 through sprite16, each with `_attack.png` and `_idle.png`
+Naming convention for cropped frames: `{creature}_{color/material}_{trait or weapon}_{action-pose-description}_frameNN.png`
 
-### Character Overworld
-`character overworld/` — ow1 through ow16 overworld sprites
+## `raw-asset-packs/` — 1815 files, untouched
 
-### Menu Sprites
-`menu sprites/` — menusprite1 through menusprite16 UI icons
+Every original asset pack and loose file that has **not** been processed: `Bonus Pack 2025`, `Dark VFX 1/2`, `Holy VFX 01/02`, `Icons_Essential`, `Shikashi's Fantasy Icons Pack` (+ variants), `Zombies`, `Retromon Free Pack`, `boss_0_N.png` through `boss_13_S.png`, `Rat_0004_dark.png`, `Werewolf_0004_brown.png`, `Tree_of_Glory-Sheet.png` (note: different file from the one already processed — this one still has capital letters and no `_idle`), and everything else. Nothing in here has been renamed, cropped, or identified. If it's not in `organized-by-agent/`, it's raw.
 
-### Sperites (additional enemy sheets)
-`Sperites/` — duplicate enemy sprite sheets at root level
+## Status
 
-### Attack Effects
-`attack effects/` — attack1 through attack7 VFX sprites
-
-### Backgrounds
-`backgrounds/` — background1 through background3 environment backgrounds
-
-### Graphics (retromon-style)
-- `graphics/characters/` — player, fire_boss, water_boss, grass_boss, hat_girl, etc.
-- `graphics/monsters/` — Atrox, Cindrill, Draem, Finiette, etc.
-- `graphics/attacks/` — explosion, fire, ice, green, scratch, splash
-- `graphics/backgrounds/` — forest, ice, sand
-- `graphics/objects/` — trees, rocks, houses, gates, pillars
-- `graphics/tilesets/` — world, coast, indoor tilesets + water animation frames
-- `graphics/ui/` — sword, shield, health, energy, attack, defense icons
-- `graphics/fonts/` — PixeloidSans.ttf, dogicapixel.otf
-- `graphics/icons/` — monster icons (Pluma, Ivieron, Gulfin, etc.)
-
-### Pixel Art Key Pack (Animated)
-`Pixel Art Key Pack - Animated/` — Keys 1-9 in Bronze/Gold/Silver/Grey/Cursed variants with animation frames + spritesheets
-
-### VFX Packs
-- `Dark VFX 1/` — dark magic visual effects
-- `Dark VFX 2/` — additional dark VFX
-- `Holy VFX 01/` — holy/light VFX
-- `Holy VFX 02/` — additional holy VFX
-- `Magic Pack 9 files/` — Dark Bolt, Fire Bomb, Lightning, Spark (sprites, spritesheets, aseprite source)
-
-### UI Elements
-- `UI/` — bar icons (baricon1-7) and option icons (options1-8)
-- `UI_Elements_Demo/` — buttons, panels, slots, progress bars
-- `FantasyUIfree/` — dragon HP bars and fantasy UI elements
-- `Icons_Demo/` — icon set demo
-- `Icons_Essential/` — essential icon pack
-
-### Fantasy Icon Packs (Shikashi's)
-- `Shikashi's Fantasy Icons Pack/` — v1 icons + backgrounds
-- `Shikashi's Fantasy Icons Pack v2/` — v2 icons + backgrounds
-- `Shikashi's Fantasy Icons Pack v2 (1)/` — v2 duplicate
-
-### Bonus Content
-- `Bonus Pack 2025/` — bonus asset pack
-- `Humble Gift - v1.3/` — humble bundle gift assets
-- `German shepard bundle/` + `German shepard bundle (1)/` — german shepherd sprite bundles
-- `Retromon Free Pack/` — retro monster icons and sprites
-- `SD/` — ifrit, leviathan, shiva SD sprites (fire/ice/water variants)
-- `Zombies/` + `Zombies (1)/` — zombie battlers and sprites (NPC + VS8 variants)
-
-### Other Assets
-- `128/`, `32/`, `64/` — sized asset variants
-- `tileset/` — tileset.png
-- Various standalone `.png` and `.gif` files at root (exported/image-timestamped sprites)
+- ✅ Batch 1 (6 creature sheets + 2 prop sheets): done
+- ✅ Tree of Glory idle sheet: done
+- ✅ `sprites/` folder (16 creatures): done, needs spot-check on naming
+- ✅ 62 loose screenshots: sorted by category, not individually named
+- ⬜ Everything in `raw-asset-packs/`: not started
